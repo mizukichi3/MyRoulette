@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(Arrays.asList(participant));
         participant.clear();
         participantList.setText(null);
-        randomNameTextView.setText("hoge");
+        randomNameTextView.setText(null);
         System.out.println(Arrays.asList(participant));
     }
 
