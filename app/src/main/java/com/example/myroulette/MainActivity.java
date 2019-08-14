@@ -62,17 +62,41 @@ public class MainActivity extends AppCompatActivity {
         Log.d("participantList is ", participantString);
         System.out.println(Arrays.asList(participantArray));
 
+        // 配列に参加者の名前を入れる
         for(int i = 0; i < participantArray.length; i++) {
             System.out.println(i + "番目の要素 =:" + participantArray[i]);
             participant.add(participantArray[i]);
         };
 
-        // selectedParticipantをrandomTextViewに表示する
+        // 参加者の名前をルーレットっぽく表示する
+        boolean pending = true;
+        long start = System.currentTimeMillis();
+        long now;
+        while (pending) {
+            try {
+                for (int i = 0; i < participantArray.length; i++) {
+                    System.out.println("roulette: " + participant.get(i));
+                    randomNameTextView.setText(participant.get(i));
+                    //randomNameTextView.setText("hoge"); //これも入らない
+                    Thread.sleep(300);
+                }
+            } catch (InterruptedException ignore) {
+                // ignore
+            }
+            now = System.currentTimeMillis();
+            if (now - start > 2000){
+                Log.d("MainActivity", "ルーレットを抜けます");
+                break;
+            }
+        }
+
+        // 1人選んだselectedParticipantをrandomTextViewに表示する
         Random rnd = new Random();
         int index = rnd.nextInt(participant.size());
         Log.d("MainActivity", participant.get(index));
         randomNameTextView.setText(participant.get(index));
         System.out.println(Arrays.asList(participant));
+
     }
 
     // RESETボタンが押された時の処理
