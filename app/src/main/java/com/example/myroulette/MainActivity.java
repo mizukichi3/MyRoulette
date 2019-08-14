@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             participant.add(participantArray[i]);
         };
 
-        // 参加者の名前をルーレットっぽく表示する
+        // [WIP]参加者の名前をルーレットっぽく表示する
         boolean pending = true;
         long start = System.currentTimeMillis();
         long now;
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("roulette: " + participant.get(i));
                     randomNameTextView.setText(participant.get(i));
                     //randomNameTextView.setText("hoge"); //これも入らない
-                    Thread.sleep(300);
+                    Thread.sleep(100);
                 }
             } catch (InterruptedException ignore) {
                 // ignore
